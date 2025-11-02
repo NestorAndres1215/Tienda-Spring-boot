@@ -1,107 +1,46 @@
 package evaluacioncontinua.entity;
 
+import evaluacioncontinua.util.Mensajes;
+import lombok.*;
+import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Date;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
 @Table(name = "productos")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Producto implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@NotEmpty(message = Mensajes.NOMBRE_PRODUCTO_REQUERIDO)
 	@Column(nullable = false, length = 100)
 	private String nombre;
 
+	@NotEmpty(message = Mensajes.CATEGORIA_PRODUCTO_REQUERIDA)
 	@Column(nullable = false, length = 50)
 	private String categoria;
 
+	@Positive(message = Mensajes.PRECIO_PRODUCTO_INVALIDO)
 	@Column(nullable = false)
 	private double precio;
 
-	@Column(name = "create_at", nullable = false)
+	@Column(name = "create_at", nullable = false, updatable = false)
 	private LocalDate createAt;
 
+	@Column(nullable = false)
 	private String foto;
 
-	public Producto() {
-	}
-
-	public Producto(String nombre, String categoria, double precio, String foto) {
-		this.nombre = nombre;
-		this.categoria = categoria;
-		this.precio = precio;
-		this.foto = foto;
-	}
-
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getCategoria() {
-		return categoria;
-	}
-
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
-	}
-
-	public double getPrecio() {
-		return precio;
-	}
-
-	public void setPrecio(double precio) {
-		this.precio = precio;
-	}
-
-	public LocalDate getCreateAt() {
-		return createAt;
-	}
-
-	public void setCreateAt(LocalDate createAt) {
-		this.createAt = createAt;
-	}
-
-	public String getFoto() {
-		return foto;
-	}
-
-	public void setFoto(String foto) {
-		this.foto = foto;
-	}
-
-	@Override
-	public String toString() {
-		return "Producto{" +
-				"id=" + id +
-				", nombre='" + nombre + '\'' +
-				", categoria='" + categoria + '\'' +
-				", precio=" + precio +
-				", createAt=" + createAt +
-				", foto='" + foto + '\'' +
-				'}';
+	@PrePersist
+	protected void prePersist() {
+		this.createAt = LocalDate.now();
 	}
 }

@@ -5,20 +5,16 @@ import java.util.List;
 import evaluacioncontinua.entity.Cliente;
 
 
-
 public interface IClienteService {
-		//Método 1: Listar los clientes:
-		public List<Cliente> listarClientes();
-		
-		//Método 2: Crear un cliente:
-		public void crearCliente(Cliente cliente);
-		
-		//Método 3: Editar un cliente:
-		public Cliente editarCliente(Long id);
-		
-		//Método 4: Eliminar un cliente:
-		public void eliminarCliente(Long id);
 
-		//Metodo correo existe
-		public boolean correoExiste(String correo);
+
+    List<Cliente> listarClientes();
+
+    Cliente crearCliente(Cliente cliente);
+
+    Cliente editarCliente(Long id);
+
+    void eliminarCliente(Long id);
+
+    boolean correoExiste(String correo);
 }

@@ -5,10 +5,13 @@ import java.util.List;
 import evaluacioncontinua.entity.Empleado;
 
 public interface IEmpleadoService {
-	public List<Empleado>listarEmpleados();
-	public void crearEmpleados(Empleado empleado);
-	public Empleado editarEmpleado(Long id);
-	public void eliminarEmpleado(Long id);
-	
-	
+    List<Empleado> listarEmpleados();
+
+    Empleado crearEmpleado(Empleado empleado);
+
+    Empleado editarEmpleado(Long id);
+
+    void eliminarEmpleado(Long id);
+
+
 }
