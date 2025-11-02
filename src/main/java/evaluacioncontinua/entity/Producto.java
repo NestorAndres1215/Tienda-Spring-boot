@@ -22,10 +22,12 @@ public class Producto implements Serializable {
 	private Long id;
 
 	@NotEmpty(message = Mensajes.NOMBRE_PRODUCTO_REQUERIDO)
+	@Size(min = 2, max = 100, message = Mensajes.NOMBRE_PRODUCTO_TAMANIO)
 	@Column(nullable = false, length = 100)
 	private String nombre;
 
 	@NotEmpty(message = Mensajes.CATEGORIA_PRODUCTO_REQUERIDA)
+	@Size(min = 2, max = 50, message = Mensajes.CATEGORIA_PRODUCTO_TAMANIO)
 	@Column(nullable = false, length = 50)
 	private String categoria;
 
@@ -36,6 +38,7 @@ public class Producto implements Serializable {
 	@Column(name = "create_at", nullable = false, updatable = false)
 	private LocalDate createAt;
 
+	@NotEmpty(message = Mensajes.FOTO_REQUERIDA)
 	@Column(nullable = false)
 	private String foto;
 

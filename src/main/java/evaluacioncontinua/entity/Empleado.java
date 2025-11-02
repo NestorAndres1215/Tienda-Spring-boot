@@ -23,22 +23,25 @@ public class Empleado implements Serializable {
     private Long id;
 
     @NotEmpty(message = Mensajes.NOMBRE_REQUERIDO)
-    @Column(nullable = false, length = 255)
+    @Size(min = 2, max = 50, message = Mensajes.NOMBRE_TAMANIO)
+    @Column(nullable = false, length = 50)
     private String nombre;
 
     @NotEmpty(message = Mensajes.APELLIDO_REQUERIDO)
-    @Column(nullable = false, length = 255)
+    @Size(min = 2, max = 50, message = Mensajes.APELLIDO_TAMANIO)
+    @Column(nullable = false, length = 50)
     private String apellido;
 
     @NotEmpty(message = Mensajes.EMAIL_REQUERIDO)
     @Email(message = Mensajes.EMAIL_INVALIDO)
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false, length = 100, unique = true)
     private String email;
 
     @Column(name = "create_at", updatable = false)
     @Temporal(TemporalType.DATE)
     private Date createAt;
 
+    @NotEmpty(message = Mensajes.FOTO_REQUERIDA)
     @Column(nullable = false)
     private String foto;
 
