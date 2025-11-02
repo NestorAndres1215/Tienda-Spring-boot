@@ -13,5 +13,12 @@ public interface IEmpleadoService {
 
     void eliminarEmpleado(Long id);
 
+    // ✅ Métodos de búsqueda
+    List<Empleado> buscarPorNombre(String nombre);
 
+    List<Empleado> buscarPorApellido(String apellido);
+
+    List<Empleado> buscarPorEmail(String email);
+
+    List<Empleado> buscarPorNombreApellidoEmail(String keyword);
 }

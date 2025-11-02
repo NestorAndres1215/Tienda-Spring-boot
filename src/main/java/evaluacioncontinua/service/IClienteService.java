@@ -17,4 +17,12 @@ public interface IClienteService {
     void eliminarCliente(Long id);
 
     boolean correoExiste(String correo);
+    // Buscar clientes
+    List<Cliente> buscarPorNombre(String nombre);
+
+    List<Cliente> buscarPorApellido(String apellido);
+
+    List<Cliente> buscarPorEmail(String email);
+
+    List<Cliente> buscarPorNombreApellidoEmail(String keyword);
 }

@@ -50,4 +50,22 @@ public class ClienteServiceImpl implements IClienteService {
     public boolean correoExiste(String correo) {
         return clienteDao.existsByEmail(correo);
     }
+    public List<Cliente> buscarPorNombre(String nombre) {
+        return clienteDao.findByNombreContainingIgnoreCase(nombre);
+    }
+
+    @Override
+    public List<Cliente> buscarPorApellido(String apellido) {
+        return clienteDao.findByApellidoContainingIgnoreCase(apellido);
+    }
+
+    @Override
+    public List<Cliente> buscarPorEmail(String email) {
+        return clienteDao.findByEmailContainingIgnoreCase(email);
+    }
+
+    @Override
+    public List<Cliente> buscarPorNombreApellidoEmail(String keyword) {
+        return clienteDao.buscarPorNombreApellidoEmail(keyword);
+    }
 }

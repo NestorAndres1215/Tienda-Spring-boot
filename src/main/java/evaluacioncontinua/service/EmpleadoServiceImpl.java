@@ -42,4 +42,24 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
 		}
 		empleadoDao.deleteById(id);
 	}
+
+	@Override
+	public List<Empleado> buscarPorNombre(String nombre) {
+		return empleadoDao.findByNombreContainingIgnoreCase(nombre);
+	}
+
+	@Override
+	public List<Empleado> buscarPorApellido(String apellido) {
+		return empleadoDao.findByApellidoContainingIgnoreCase(apellido);
+	}
+
+	@Override
+	public List<Empleado> buscarPorEmail(String email) {
+		return empleadoDao.findByEmailContainingIgnoreCase(email);
+	}
+
+	@Override
+	public List<Empleado> buscarPorNombreApellidoEmail(String keyword) {
+		return empleadoDao.buscarPorNombreApellidoEmail(keyword);
+	}
 }
