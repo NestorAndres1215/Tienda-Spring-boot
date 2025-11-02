@@ -17,5 +17,24 @@ public class Mensajes {
     public static final String PRODUCTO_NO_ENCONTRADO = "Producto no encontrado con id: ";
     public static final String NOMBRE_PRODUCTO_TAMANIO = "El nombre del producto debe tener entre 2 y 100 caracteres";
     public static final String CATEGORIA_PRODUCTO_TAMANIO = "La categoría del producto debe tener entre 2 y 50 caracteres";
+
+
+
+
+    // Cliente
+
+    public static final String EMAIL_DUPLICADO = "El correo electrónico ya existe.";
+
+    public static final String CLIENTE_ELIMINADO = "Cliente eliminado correctamente.";
+
+    // Empleado
+    public static final String NOMBRE_EMPLEADO_REQUERIDO = "El nombre del empleado es obligatorio.";
+    public static final String APELLIDO_EMPLEADO_REQUERIDO = "El apellido del empleado es obligatorio.";
+    public static final String EMAIL_EMPLEADO_REQUERIDO = "El correo del empleado es obligatorio.";
+
+    public static final String PRODUCTO_ELIMINADO = "Producto eliminado correctamente.";
+
+    // General
+    public static final String ERROR_INTERNO = "Ocurrió un error interno. Intente nuevamente.";
 }
 
